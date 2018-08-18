@@ -21,7 +21,7 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
  *
  *
  *
- * xsaxsaxsa
+ * 
  */
 public class MapsShow extends AppCompatActivity {
 private MapView mapView;
