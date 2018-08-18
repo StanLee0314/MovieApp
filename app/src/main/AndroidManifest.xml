@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.Steven.movieApplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <permission
+        android:name="com.Steven.movieApplication.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.Steven.movieApplication.WRITE_DATABASE"
+        android:protectionLevel="normal" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.Steven.movieApplication.MainActivity"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.Steven.movieApplication.HomeMainActivity"
+            android:label="@string/app_name"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name="com.Steven.movieApplication.DetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Steven.movieApplication.DetailActivity" />
+        </activity>
+
+        <activity android:name="com.Steven.movieApplication.DetailWithPurchaseActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Steven.movieApplication.DetailWithPurchaseActivity" />
+        </activity>
+
+
+
+        <service
+            android:name="com.Steven.movieApplication.stackWidget.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+
+        <activity
+            android:name="com.Steven.movieApplication.MapsShow"
+            android:label="@string/title_activity_maps"></activity>
+
+        <activity
+            android:name="com.Steven.movieApplication.PurchaseProcess"
+            android:label="Purchase"></activity>
+        <activity
+            android:name="com.Steven.movieApplication.UserAccountActivity"
+            android:label="Account"></activity>
+
+
+    </application>
+
+</manifest>

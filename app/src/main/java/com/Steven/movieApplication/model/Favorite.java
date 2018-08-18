@@ -1,0 +1,107 @@
+package com.Steven.movieApplication.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+/**
+ * Created by Steven on 6/2/2018.
+ * model for the favorite movie
+ * use parcel
+ */
+
+public class Favorite implements Parcelable {
+
+
+
+    private int id;
+    private String title;
+    private String release_date;
+    private String overview;
+    private String poster;
+
+    protected Favorite(Parcel in) {
+        title = in.readString();
+        release_date = in.readString();
+        overview = in.readString();
+        poster = in.readString();
+        id= in.readInt();
+    }
+
+    public static final Creator<Favorite> CREATOR = new Creator<Favorite>() {
+        @Override
+        public Favorite createFromParcel(Parcel in) {
+            return new Favorite(in);
+        }
+
+        @Override
+        public Favorite[] newArray(int size) {
+            return new Favorite[size];
+        }
+    };
+
+    public Favorite() {
+
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+
+    public String getRelease_date() {
+        return release_date;
+    }
+
+    public void setRelease_date(String release_date) {
+        this.release_date = release_date;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static Creator<Favorite> getCREATOR() {
+        return CREATOR;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(title);
+        parcel.writeString(release_date);
+        parcel.writeString(overview);
+        parcel.writeString(poster);
+        parcel.writeInt(id);
+    }
+
+}

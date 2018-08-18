@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    compileSdkVersion 26
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "com.Steven.movieApplication"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        buildTypes.each {
+            it.buildConfigField 'String', 'API_KEY', '"7cfb75fcdd33590e93bac1f05beed471"'
+            it.buildConfigField 'String', 'URL_POSTER', '"http://image.tmdb.org/t/p/w185"'
+        }
+    }
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.firebase:firebase-auth:10.2.1'
+    implementation 'com.google.firebase:firebase-storage:10.2.1'
+    implementation 'com.google.firebase:firebase-database:10.2.1'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:support-vector-drawable:26.1.0'
+    testImplementation 'junit:junit:4.12'
+    compile 'com.google.code.gson:gson:2.3'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-contrib:3.0.1'
+    androidTestCompile 'com.android.support:support-annotations:24.0.0'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.google.android.gms:play-services-gcm:10.2.1'
+    compile 'com.google.android.gms:play-services-auth:10.2.1'
+    compile 'com.google.firebase:firebase-messaging:10.2.1'
+    compile 'com.google.android.gms:play-services-maps:10.2.1'
+    compile 'com.google.android.gms:play-services-location:10.2.1'
+
+    compile 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.1.3'
+    compile('com.mapquest:mapping-android-sdk:1.3.2@aar') {
+        transitive = true
+
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'
