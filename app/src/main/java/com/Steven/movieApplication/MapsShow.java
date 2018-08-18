@@ -18,6 +18,10 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
  * Created by steven on 6/2/2018.
  * show the maps for three cinema locations and their business hours.
  * use mapbox
+ *
+ *
+ *
+ * xsaxsaxsa
  */
 public class MapsShow extends AppCompatActivity {
 private MapView mapView;
